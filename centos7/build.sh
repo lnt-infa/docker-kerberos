@@ -1,1 +1,1 @@
-docker build -t kerberos .
+docker build -t lntinfa/docker-kerberos .

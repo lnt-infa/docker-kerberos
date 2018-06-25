@@ -1,5 +1,5 @@
 FROM centos:7.4.1708
-MAINTAINER Louis-Noël Trapadoux <ltrapadoux@informatica.com>
+MAINTAINER LNT
 
 # EPEL
 #RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -29,6 +29,8 @@ RUN yum install -y krb5-server krb5-libs krb5-auth-dialog krb5-workstation inits
 EXPOSE 88 749
 
 ADD ./config.sh /config.sh
+
+RUN curl -LO https://raw.githubusercontent.com/lnt-infa/docker-common-scripts/master/consulFunctions.sh && cp consulFunctions.sh /etc/consulFunctions.sh
 
 VOLUME [ "/sys/fs/cgroup" ]
 
